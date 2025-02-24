@@ -209,7 +209,7 @@
 		        showMessageZone();
 		    }
 		    else if (cleanedTitle.includes("*") || cleanedArtist.includes("*") || containsDisallowedWords(cleanedTitle) || containsDisallowedWords(cleanedArtist)) {
-		        errorZone.innerHTML = "Keep it clean!";
+		        errorZone.innerHTML = "Please refrain from using explicit language!";
 		        document.getElementById("currentStrikes").innerHTML = currentStrikes+=1;
 			localStorage.setItem("currentStrikes",currentStrikes)
 		        if (currentStrikes == 3) {
