@@ -153,8 +153,7 @@
 		var dissallowedWords = ["sped", "asshat", "dumbass", "kil","ki!","ki1","ki|","kiI","kill","ki!!","ki11","ki||","ki||","kys"];
 		
 		function ban() {
-		    requestZone.style.opacity = "0";
-		    requestZone.style.pointerEvents = "none";
+		    requestZone.style.display = "none";
 		
 		    currentDate = new Date();
 		    returnDate =  currentDate.setDate(currentDate.getDate() + 2);
