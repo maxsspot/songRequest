@@ -166,7 +166,7 @@
 				currentStrikes = 0;
 				localStorage.setItem("currentStrikes",currentStrikes)
 			} else {
-				currentStrikes=localStorage.getItem("currentStrikes");
+				parseInt(currentStrikes=localStorage.getItem("currentStrikes"), 10);
 			}
  			
 			document.getElementById("currentStrikes").innerHTML = localStorage.getItem("currentStrikes");
