@@ -210,7 +210,7 @@
 		    }
 		    else if (cleanedTitle.includes("*") || cleanedArtist.includes("*") || containsDisallowedWords(cleanedTitle) || containsDisallowedWords(cleanedArtist)) {
 		        errorZone.innerHTML = "Keep it clean!";
-			currentStrikes+=1;
+			currentStrikes = currentStrikes+=1;
 		        document.getElementById("currentStrikes").innerHTML = currentStrikes;
 			localStorage.setItem("currentStrikes",currentStrikes)
 		        if (currentStrikes == 3) {
