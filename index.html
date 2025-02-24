@@ -210,8 +210,7 @@
 		    }
 		    else if (cleanedTitle.includes("*") || cleanedArtist.includes("*") || containsDisallowedWords(cleanedTitle) || containsDisallowedWords(cleanedArtist)) {
 		        errorZone.innerHTML = "Please refrain from using explicit language!";
-			currentStrikes+=1
-		        document.getElementById("currentStrikes").innerHTML = localStorage.getItem("currentStrikes")+=1;
+		        document.getElementById("currentStrikes").innerHTML = currentStrikes+=1;
 			localStorage.setItem("currentStrikes",currentStrikes)
 		        if (currentStrikes == 3) {
 		            ban();
