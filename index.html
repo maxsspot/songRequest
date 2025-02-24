@@ -169,7 +169,7 @@
 				currentStrikes=localStorage.getItem("currentStrikes");
 			}
  			
-			document.getElementById("currentStrikes").innerHTML = currentStrikes;
+			document.getElementById("currentStrikes").innerHTML = localStorage.getItem("currentStrikes");
 			
 			if (currentStrikes == 3) {
 		            ban();
@@ -210,8 +210,9 @@
 		    }
 		    else if (cleanedTitle.includes("*") || cleanedArtist.includes("*") || containsDisallowedWords(cleanedTitle) || containsDisallowedWords(cleanedArtist)) {
 		        errorZone.innerHTML = "Keep it clean!";
-		        document.getElementById("currentStrikes").innerHTML = currentStrikes+=1;
-			localStorage.setItem("currentStrikes",currentStrikes+=1)
+			currentStrikes+=1;
+		        document.getElementById("currentStrikes").innerHTML = currentStrikes;
+			localStorage.setItem("currentStrikes",currentStrikes)
 		        if (currentStrikes == 3) {
 		            ban();
 		        }
