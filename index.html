@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+		<script src="https://cdn.jsdelivr.net/npm/profanity-cleaner@0.0.3/dist/profanity-cleaner.min.js"></script>
+		<title>Gym Class Song Request</title>
+	</head>
+	<body>
+		<div id = "barred">
+			<br><br>
+			<i class="fa-solid fa-triangle-exclamation fa-5x"></i>
+			<br><br>
+			<h2>TEMPORARILY BARRED</h2>
+			<br>
+			<b>You may request another song on <span id = "returnDate"></span></b>
+		</div>
+
+		<div id = "songRequest">
+			<div id = "errors">
+			
+			</div>
+			<br>
+			<h1>SONG REQUEST</h1>
+			<br>
+			<label for = "songTitle">Song Title: </label><input id = "songTitle" class = "suggestElement" placeholder = "Song Title..."/><br>
+			<label for = "artist">Artist: </label><input value = "1" id = "artist" class = "suggestElement" placeholder = "Artist..." /><br>
+			<label for = "gradeLevel">Grade Level: </label><input value = "11" id = "gradeLevel" class = "suggestElement" placeholder = "Grade Level..." /><br>
+			<label for = "period">Period: </label><input value = "1" id = "gymPeriod" class = "suggestElement" placeholder = "Gym Period..." /><br><br>
+			
+			<button id = "request" onclick = "requestSong()">REQUEST</button>
+		
+			<br><br>
+
+			<sub>Please ensure you follow <span id = "showGuidelines" onclick = "controlGuidelines()">these guidelines</span>.</sub>
+		
+			<b id = "strikes">Strike <span id = "currentStrikes">0</span>/3</b>
+		</div>
+		
+		<div id = "guidelines">
+			<br>
+			<h1>GUIDELINES</h1>
+			<br>
+			<p class = "guidelineRow"><b>Be Serious</b>. Only submit real songs.</p><br>
+			<p class = "guidelineRow"><b>Do Not Spam</b>. Do not spam requests.</p><br>
+			<p class = "guidelineRow"><b>Keep It Clean</b>. Do not include explicit language in the Song Title or Artist field.</p>
+			<br>
+			<p class = "guidelineRow" style = "width:320px"><b>Breaking these guidelines will result in the <i>temporary loss of the ability</i> to request songs!<b></p>
+			<br>
+			<p id = "closeGuidelines" onclick = "controlGuidelines()">CLOSE</p>
+		</div>
+	</body>
+</html>
