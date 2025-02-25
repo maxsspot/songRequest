@@ -44,7 +44,7 @@
 			<br>
 			<p class = "guidelineRow"><b>Be Serious</b>. Only submit real songs.</p><br>
 			<p class = "guidelineRow"><b>Do Not Spam</b>. Do not spam requests.</p><br>
-			<p class = "guidelineRow"><b>Keep It Clean</b>. Do not include explicit language in the Song Title or Artist field.</p>
+			<p class = "guidelineRow"><b>Keep It Clean</b>. Do not include explicit language in any of the inputs.</p>
 			<br>
 			<p class = "guidelineRow" style = "width:320px"><b>Breaking these guidelines will result in the <i>temporary loss of the ability</i> to request songs!<b></p>
 			<br>
@@ -209,10 +209,10 @@
 		        showMessageZone();
 		    }
 		    else if (cleanedTitle.includes("*") || cleanedArtist.includes("*") || containsDisallowedWords(cleanedTitle) || containsDisallowedWords(cleanedArtist)) {
-		        errorZone.innerHTML = "Please refrain from using explicit language!";
+		        errorZone.innerHTML = "Please refrain from using explicit language! You are at " + currentStrikes + "/3 strikes.";
 		        document.getElementById("currentStrikes").innerHTML = currentStrikes+=1;
 			localStorage.setItem("currentStrikes",currentStrikes)
-		        if (currentStrikes == 3) {
+			if (currentStrikes == 3) {
 		            ban();
 		        }
 		        showMessageZone();
