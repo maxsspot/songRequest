@@ -12,9 +12,9 @@
 			<br><br>
 			<i class="fa-solid fa-triangle-exclamation fa-5x"></i>
 			<br><br>
-			<h2>TEMPORARILY BANNED</h2>
+			<h2><span id = "time">TEMPORARILY </span>BANNED</h2>
 			<br>
-			<b>You may request another song on <span id = "returnDate"></span></b>
+			<b id = "reason">You may request another song on <span id = "returnDate"></span></b>
 		</div>
 
 		<div id = "songRequest">
@@ -150,9 +150,17 @@
 		var guidelineZone = document.getElementById("guidelines");
 		var bannedZone = document.getElementById("barred");
 		
-		var dissallowedWords = ["sped","sp3d","btch","asshat","dumbass","$h1t","kil","ki!","ki1","ki|","kiI","kill","ki!!","ki11","ki||","ki||","kys"];
+		var dissallowedWords = ["btch","asshat","dumbass","$h1t","kil","ki!","ki1","ki|","kiI","kill","ki!!","ki11","ki||","ki||","kys"];
 		
-		function ban() {
+		var userId = 1234
+		var bannedIds = ["1234"]
+			
+		function ban(time) {
+		    if(indefinite) {
+			docment.getElementById("").style.display = "none";
+			document.getElementById("reason").innerHTML = "Due to reported misuse, you may not request any music."
+		    }
+		
 		    requestZone.style.display = "none";
 		
 		    currentDate = new Date();
@@ -174,6 +182,11 @@
 			if (currentStrikes == 3) {
 		            ban();
 		        }
+
+			if (userId in bannedIds) {
+			    time = "indefinite"
+			    ban(time);
+			}
 		}
 			
 		function containsDisallowedWords(input) {
