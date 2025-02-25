@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Gym Class Song Request</title>
 	</head>
-	<body onload = "checkStrikeInformation()">
+	<body onload = "checkStrikeInformation();guidelinesAtBeginning()">
 		<div id = "barred">
 			<br><br>
 			<i class="fa-solid fa-triangle-exclamation fa-5x"></i>
@@ -188,7 +188,12 @@
 		        errorZone.style.top = "-100px";
 		    }, 5000);
 		}
-		
+
+		function guidelinesAtBeginning() {
+		    errorZone.innerHTML = "Please read <span id = 'showGuidelines' onclick = 'controlGuidelines()'>these guidelines</span> before requesting a song!"
+		    errorZone.style.top = "10px";
+		}
+			
 		function requestSong() {
 		    var songTitle = document.getElementById("songTitle");
 		    var artist = document.getElementById("artist");
