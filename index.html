@@ -156,7 +156,7 @@
 		var bannedIds = ["1234"]
 			
 		function ban(time) {
-		    if(indefinite) {
+		    if(time === "indefinite") {
 			document.getElementById("time").style.display = "none";
 			document.getElementById("reason").innerHTML = "Due to reported misuse, you may not request any music."
 		    }
@@ -183,7 +183,7 @@
 		            ban();
 		        }
 
-			if (userId in bannedIds) {
+			if (bannedIds.includes(userId.toString())) {
 			    time = "indefinite"
 			    ban(time);
 			}
