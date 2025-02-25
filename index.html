@@ -159,7 +159,7 @@
 
 		function setUserId() {
 		    if (!localStorage.getItem("userId")) {
-			userId = Math.floor(Math.Random() * 999999) + 100000;
+			userId = Math.floor(Math.random() * 999999) + 100000;
 			localStorage.setItem("userId",userId);
 		    } else {
 			userId = localStorage.getItem("userId");
