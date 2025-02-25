@@ -227,7 +227,7 @@
 		        showMessageZone();
 		    }
 		    else {
-		        errorZone.innerHTML = "You have successfully requested <b>" + songTitle.value + "</b> by <b>" + artist.value + "</b>!";
+		        errorZone.innerHTML = "You have successfully requested <b>" + songTitle.value.trim() + "</b> by <b>" + artist.value.trim() + "</b>!";
 		        showMessageZone();
 		    }
 		}
