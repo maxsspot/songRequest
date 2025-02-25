@@ -48,7 +48,7 @@
 			<p class = "guidelineRow"><b>Be Serious</b>. Only submit real songs.</p><br>
 			<p class = "guidelineRow"><b>Do Not Spam</b>. Do not spam requests.</p><br>
 			<p class = "guidelineRow"><b>Keep It Clean</b>. Do not use any explicit language inside of the input fields.</p><br>
-			<p class = "guidelineRow"><b>Be Accurate</b>. Fill in your actual grade level and period.</p>			
+			<p class = "guidelineRow"><b>Be Accurate</b>. Submit your actual grade level and period.</p>			
 			<br>
 			<p class = "guidelineRow" style = "width:320px"><b>Breaking these guidelines will result in the <i>temporary loss of the ability</i> to request songs!<b></p>
 			<br>
@@ -158,6 +158,7 @@
 		
 		var bannedIds = [""]
 
+		// Sets the User ID on when the page loads, or loads the User ID if one already exists
 		function setUserId() {
 		    if (!localStorage.getItem("userId")) {
 			var userId = Math.floor(Math.random() * 999999) + 100000;
@@ -168,7 +169,8 @@
 
 	 	    document.getElementById("userId").innerHTML = userId;
 		}
-			
+
+		// Bans the user either temporarily or permanetly depending on what they have done
 		function ban(time) {
 		    if(time === "indefinite") {
 			document.getElementById("time").innerHTML = "INDEFINITELY ";
@@ -183,6 +185,7 @@
 		    document.getElementById("returnDate").innerHTML = returnDate
 		}
 
+		// Checks your strike information and does the proper actions when the page loads
 		function checkStrikeInformation() {
 			if (!localStorage.getItem("currentStrikes")) {
 				currentStrikes = 0;
@@ -202,20 +205,23 @@
 			    ban(time);
 			}
 		}
-			
+
+		// Ensures that there is no explicit language in any of the input fields
 		function containsDisallowedWords(input) {
 		    const lowerInput = input.toLowerCase();
 		    return dissallowedWords.some(word => lowerInput.includes(word));
 		}
-		
+
+		// Shows the message zone temporarily and then hides it after a few seconds
 		function showMessageZone() {
 		    errorZone.style.top = "10px";
 		
 		    setTimeout(function () {
-		        errorZone.style.top = "-100px";
+		        errorZone.style.top = "-150px";
 		    }, 5000);
 		}
 
+		// Ensures that the user must read the guidelines before using the application
 		function guidelinesAtBeginning() {
 		    if(!localStorage.getItem("readTheGuidelines")) {
 	   	        errorZone.innerHTML = "Please read <span id = 'showGuidelines' onclick = 'controlGuidelines()' style = 'color:skyblue;'>these guidelines</span> before requesting a song!"
@@ -224,7 +230,8 @@
 			document.getElementById("request").style.color = "lightgray";
 		    }
 		}
-			
+
+		// Allows the user to actually request the song that they have chosen
 		function requestSong() {
 		    var songTitle = document.getElementById("songTitle");
 		    var artist = document.getElementById("artist");
@@ -260,7 +267,8 @@
 		}
 		
 		var open = 0;
-		
+
+		// Opens or closes the guidelines depending on the state they are already in
 		function controlGuidelines() {
 		    if (open === 0) {
 		        guidelineZone.style.opacity = "1";
