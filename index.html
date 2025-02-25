@@ -35,7 +35,10 @@
 
 			<sub>Please ensure you follow <span id = "showGuidelines" onclick = "controlGuidelines()">these guidelines</span>.</sub>
 		
-			<b id = "strikes">Strike <span id = "currentStrikes">0</span>/3</b>
+			<b id = "strikes">
+				ID: <span id = "userId"></span><br>
+				Strike <span id = "currentStrikes">0</span>/3
+			</b>
 		</div>
 		
 		<div id = "guidelines">
@@ -152,8 +155,18 @@
 		
 		var dissallowedWords = ["btch","asshat","dumbass","$h1t","kil","ki!","ki1","ki|","kiI","kill","ki!!","ki11","ki||","ki||","kys"];
 		
-		var userId = 1234
 		var bannedIds = ["1234"]
+
+		function setUserId() {
+		    if (!localStorage.getItem("userId")) {
+			userId = Math.floor(Math.Random() * 999999) + 100000;
+			localStorage.setItem("userId",userId);
+		    } else {
+			userId = localStorage.getItem("userId");
+		    }
+
+	 	    document.getElementById("userId").innerHTML = userID;
+		}
 			
 		function ban(time) {
 		    if(time === "indefinite") {
