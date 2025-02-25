@@ -190,8 +190,10 @@
 		}
 
 		function guidelinesAtBeginning() {
-		    errorZone.innerHTML = "Please read <span id = 'showGuidelines' onclick = 'controlGuidelines()'>these guidelines</span> before requesting a song!"
-		    errorZone.style.top = "10px";
+		    if(!localStorage.getItem("readTheGuidlines");
+	   	        errorZone.innerHTML = "Please read <span id = 'showGuidelines' onclick = 'controlGuidelines()' style = 'color:skyblue;'>these guidelines</span> before requesting a song!"
+		        errorZone.style.top = "10px";
+		    }
 		}
 			
 		function requestSong() {
@@ -239,6 +241,10 @@
 		        guidelineZone.style.opacity = "0";
 		        guidelineZone.style.pointerEvents = "none";
 		        open = 0;
+
+			if (!localStorage.getItem("readTheGuidelines")) {
+			    localStorage.setItem("readTheGuidelines","true");
+			}
 		    }
 		}
 		</script>
