@@ -194,6 +194,7 @@
 	   	        errorZone.innerHTML = "Please read <span id = 'showGuidelines' onclick = 'controlGuidelines()' style = 'color:skyblue;'>these guidelines</span> before requesting a song!"
 		        errorZone.style.top = "10px";
 			document.getElementById("request").disabled=true;
+			document.getElementById("request").style.color = "grey";
 		    }
 		}
 			
@@ -246,6 +247,8 @@
 			if (!localStorage.getItem("readTheGuidelines")) {
 			    localStorage.setItem("readTheGuidelines","true");
 			    document.getElementById("request").disabled=false;
+			    errorZone.style.top = "-100px";
+			    document.getElementById("request").style.color = "white";
 			}
 		    }
 		}
