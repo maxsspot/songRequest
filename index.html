@@ -44,7 +44,7 @@
 			<br>
 			<p class = "guidelineRow"><b>Be Serious</b>. Only submit real songs.</p><br>
 			<p class = "guidelineRow"><b>Do Not Spam</b>. Do not spam requests.</p><br>
-			<p class = "guidelineRow"><b>Keep It Clean</b>. Do not include any explicit language in any of the input fields</p>
+			<p class = "guidelineRow"><b>Keep It Clean</b>. Do not use any explicit language inside of the input fields.</p>
 			<br>
 			<p class = "guidelineRow" style = "width:320px"><b>Breaking these guidelines will result in the <i>temporary loss of the ability</i> to request songs!<b></p>
 			<br>
@@ -218,7 +218,7 @@
 		        showMessageZone();
 		    }
 		    else if (cleanedTitle.includes("*") || cleanedArtist.includes("*") || containsDisallowedWords(cleanedTitle) || containsDisallowedWords(cleanedArtist)) {
-		        errorZone.innerHTML = "Please refrain from using explicit language! You are at " + currentStrikes + "/3 strikes.";
+		        errorZone.innerHTML = "Please refrain from using explicit language!";
 		        document.getElementById("currentStrikes").innerHTML = currentStrikes+=1;
 			localStorage.setItem("currentStrikes",currentStrikes)
 			if (currentStrikes == 3) {
@@ -239,10 +239,6 @@
 		        guidelineZone.style.opacity = "1";
 		        guidelineZone.style.pointerEvents = "all";
 		        open = 1;
-		    } else {
-		        guidelineZone.style.opacity = "0";
-		        guidelineZone.style.pointerEvents = "none";
-		        open = 0;
 
 			if (!localStorage.getItem("readTheGuidelines")) {
 			    localStorage.setItem("readTheGuidelines","true");
@@ -250,6 +246,10 @@
 			    errorZone.style.top = "-100px";
 			    document.getElementById("request").style.color = "white";
 			}
+		    } else {
+		        guidelineZone.style.opacity = "0";
+		        guidelineZone.style.pointerEvents = "none";
+		        open = 0;
 		    }
 		}
 		</script>
