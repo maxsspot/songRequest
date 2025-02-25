@@ -196,7 +196,7 @@
 		            ban();
 		        }
 
-			if (bannedIds.includes(userId.toString())) {
+			if (bannedIds.includes(localStorage.getItem("userId"))) {
 			    time = "indefinite"
 			    ban(time);
 			}
