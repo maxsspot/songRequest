@@ -155,11 +155,11 @@
 		
 		var dissallowedWords = ["btch","asshat","dumbass","$h1t","kil","ki!","ki1","ki|","kiI","kill","ki!!","ki11","ki||","ki||","kys"];
 		
-		var bannedIds = ["335302"]
+		var bannedIds = [""]
 
 		function setUserId() {
 		    if (!localStorage.getItem("userId")) {
-			var userId = Math.floor(Math.random() * 999999) + 100000;
+			var userId = Math.floor(Math.random() * 9999999) + 1000000;
 			localStorage.setItem("userId",userId);
 		    } else {
 			var userId = localStorage.getItem("userId");
