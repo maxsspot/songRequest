@@ -150,7 +150,7 @@
 
 		<script type="module">
 		import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-		import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
+		import { getDatabase, ref, set, update } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
 		
 		const firebaseConfig = {
 		  apiKey: "AIzaSyAMHdGoXT1dPH1d0YqMVsTXwY583tbpvQU",
@@ -170,6 +170,7 @@
 		window.database = database;
 		window.ref = ref;
 		window.set = set;
+		window.update = update;
 		</script>
 				
 		<script>
@@ -290,8 +291,8 @@
 
 			const roomRef = ref(database, "Lobbies/" + "Grade " + gradeLevel.value.trim());
 
-			set(roomRef, {
-				request: "ID: " + localStorage.getItem("userId") + ", " + songTitle.value.trim() + " by " + artist.value.trim(),
+			update(roomRef, {
+				request: localStorage.getItem("userId") + ": " + songTitle.value.trim() + " by " + artist.value.trim(),
 			}).then(() => {
 				errorZone.innerHTML = "You have successfully requested <b>" + songTitle.value.trim() + "</b> by <b>" + artist.value.trim() + "</b>!";
 				//alert("ID - " + localStorage.getItem("userId") + ", Title - " + songTitle.value.trim() + ", Artist - " + artist.value.trim() + ", Grade Level - " + gradeLevel.value.trim() + ", Period - " + period.value.trim());
