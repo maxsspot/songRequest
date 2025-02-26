@@ -89,14 +89,16 @@
 		    if (snapshot.exists()) {
 		      const data = snapshot.val();
 		      const gradeRequestsElement = document.getElementById(gradeElementId);
-		      let requestsText = "";
+		      let requestsArray = [];
 		
 		      for (let key in data) {
-		        requestsText += data[key].request + "\n\n";
+		        requestsArray.push(data[key].request);
 		      }
 		
+		      requestsArray.reverse();
+		
 		      if (gradeRequestsElement) {
-		        gradeRequestsElement.value = requestsText;
+		        gradeRequestsElement.value = requestsArray.join("\n\n");
 		      }
 		    }
 		  });
