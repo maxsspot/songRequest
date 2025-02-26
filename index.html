@@ -166,6 +166,10 @@
 		const database = getDatabase(app);
 		
 		export { database };
+
+		window.database = database;
+		window.ref = ref;
+		window.set = set;
 		</script>
 				
 		<script>
