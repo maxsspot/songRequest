@@ -289,7 +289,7 @@
 			    
 			/////// ADDS REQUEST TO DATABASE ///////
 
-			const roomRef = ref(database, "Lobbies/" + "Grade " + gradeLevel.value.trim());
+			const roomRef = ref(database, "Song Requests/" + "Grade " + gradeLevel.value.trim());
 
 			update(roomRef, {
 				request: localStorage.getItem("userId") + " From Period " + period.value.trim() + ": " + songTitle.value.trim() + " by " + artist.value.trim(),
