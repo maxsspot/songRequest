@@ -83,16 +83,29 @@
 		const eleventhGrade = ref(database, "Song Requests/" + "Grade 11");
 		const twelfthGrade = ref(database, "Song Requests/" + "Grade 12");
 
-		onValue(ninthGrade, (snapshot) => {
+		
+		function displayRequests(gradeRef, gradeElementId) {
+		  onValue(gradeRef, (snapshot) => {
 		    if (snapshot.exists()) {
-		    	const data = snapshot.val();
-		    	const ninthGradeRequests = document.getElementById("grade9requests");
-		    	if (ninthGradeRequests) {
-				const newRequest = data.request || "";
-				ninthGradeRequests.value = newRequest + "\n\n" + ninthGradeRequests.value;
-		    	}
+		      const data = snapshot.val();
+		      const gradeRequestsElement = document.getElementById(gradeElementId);
+		      let requestsText = "";
+		
+		      for (let key in data) {
+		        requestsText += data[key].request + "\n\n";
+		      }
+		
+		      if (gradeRequestsElement) {
+		        gradeRequestsElement.value = requestsText;
+		      }
 		    }
-	    	});
+		  });
+		}
+		
+		displayRequests(ninthGrade, "grade9requests");
+		displayRequests(tenthGrade, "grade10requests");
+		displayRequests(eleventhGrade, "grade11requests");
+		displayRequests(twelfthGrade, "grade12requests");
 		</script>
 	</body>
 </html>
