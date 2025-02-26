@@ -78,10 +78,20 @@
 		
 		export { database };
 
-		window.database = database;
-		window.ref = ref;
-		window.set = set;
-		window.update = update;
+		const ninthGrade = ref(database, "Song Requests/" + "Grade 9");
+		const tenthGrade = ref(database, "Song Requests/" + "Grade 10");
+		const eleventhGrade = ref(database, "Song Requests/" + "Grade 11");
+		const twelfthGrade = ref(database, "Song Requests/" + "Grade 12");
+
+		onValue(ninthGrade, (snapshot) => {
+		    if (snapshot.exists()) {
+		    	const data = snapshot.val();
+		    	const ninthGradeRequests = document.getElementById("grade9requests");
+		    	if (ninthGradeRequests) {
+				ninthGradeRequests.value = data;
+		    	}
+		    }
+	    	});
 		</script>
 	</body>
 </html>
