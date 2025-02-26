@@ -292,7 +292,7 @@
 			const roomRef = ref(database, "Lobbies/" + "Grade " + gradeLevel.value.trim());
 
 			update(roomRef, {
-				request: localStorage.getItem("userId") + ": " + songTitle.value.trim() + " by " + artist.value.trim(),
+				request: localStorage.getItem("userId") + " From Period " + period.value.trim() + ": " + songTitle.value.trim() + " by " + artist.value.trim(),
 			}).then(() => {
 				errorZone.innerHTML = "You have successfully requested <b>" + songTitle.value.trim() + "</b> by <b>" + artist.value.trim() + "</b>!";
 				//alert("ID - " + localStorage.getItem("userId") + ", Title - " + songTitle.value.trim() + ", Artist - " + artist.value.trim() + ", Grade Level - " + gradeLevel.value.trim() + ", Period - " + period.value.trim());
