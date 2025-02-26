@@ -155,7 +155,7 @@
 		var guidelineZone = document.getElementById("guidelines");
 		var bannedZone = document.getElementById("barred");
 		
-		var dissallowedWords = ["btch","fck","asshat","dumbass","$h1t","kil","ki!","ki1","ki|","kiI","kill","ki!!","ki11","ki||","ki||","kys","ky$","kay why ess","kay y ess","que why ess","que y ess"];
+		var dissallowedWords = ["btch","fck","asshat","dumbass","$h1t","kil","ki!","ki1","ki|","kiI","kill","ki!!","ki11","ki||","ki||","kys","k y s","ky$","k y $","kay why ess","kay y ess","que why ess","que y ess"];
 		
 		var bannedIds = [""]
 
@@ -262,10 +262,18 @@
 		        showMessageZone();
 		    }
 		    else {
-		        errorZone.innerHTML = "You have successfully requested <b>" + songTitle.value.trim() + "</b> by <b>" + artist.value.trim() + "</b>!";
-			alert("ID - " + localStorage.getItem("userId") + ", Title - " + songTitle.value.trim() + ", Artist - " + artist.value.trim() + ", Grade Level - " + gradeLevel.value.trim() + ", Period - " + period.value.trim());
-		        showMessageZone();
-		    }
+			    
+			/////// ADDS REQUEST TO DATABASE ///////
+
+			const roomRef = ref(database, "Lobbies/" + "Grade" + gradeLevel.value.trim());
+
+			set(roomRef, {
+				request: "ID - " + localStorage.getItem("userId") + ", Title - " + songTitle.value.trim() + ", Artist - " + artist.value.trim(),
+			}).then(() => {
+				errorZone.innerHTML = "You have successfully requested <b>" + songTitle.value.trim() + "</b> by <b>" + artist.value.trim() + "</b>!";
+				//alert("ID - " + localStorage.getItem("userId") + ", Title - " + songTitle.value.trim() + ", Artist - " + artist.value.trim() + ", Grade Level - " + gradeLevel.value.trim() + ", Period - " + period.value.trim());
+				showMessageZone();
+			}
 		}
 		
 		var open = 0;
