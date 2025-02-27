@@ -227,10 +227,14 @@
 		// Checks your strike information and does the proper actions when the page loads
 		function checkStrikeInformation() {
 			currentDate = new Date();
-			if (!localStorage.getItem("currentStrikes") || currentDate.getDay() == 4 && currentDate.getHours() >= 14 && currentDate.getMinutes() >= 30) {
+			if (currentDate.getDay() == 4) {
+				localStorage.setItem("resetAtEnd","true");
+			}
+			if (!localStorage.getItem("currentStrikes") || currentDate.getDay() == 4 && currentDate.getHours() >= 14 && currentDate.getMinutes() >= 30 && localStorage.getItem("resetAtEnd")) {
 				currentStrikes = 0;
 				localStorage.setItem("currentStrikes",currentStrikes)
 				localStorage.removeItem("haveBeenWarned")
+				localStorage.removeItem("resetAtEnd");
 			} else {
 				currentStrikes=parseInt(localStorage.getItem("currentStrikes"), 10);
 			}
