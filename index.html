@@ -228,7 +228,7 @@
 		function checkStrikeInformation() {
 			currentDate = new Date();
 
-			if (currentDate.getDay() === 4 && !localStorage.getItem("haveAlreadyReset") || currentDate.getDay() === 5) {
+			if (currentDate.getDay() === 5 && !localStorage.getItem("haveAlreadyReset") || currentDate.getDay() === 6) {
 				localStorage.setItem("resetStrikes","true");
 			}
 			
@@ -239,7 +239,7 @@
 				currentStrikes=parseInt(localStorage.getItem("currentStrikes"), 10);
 			}
 
-			if (currentDate.getDay() === 4 && localStorage.getItem("resetStrikes")) {
+			if (currentDate.getDay() === 5 && localStorage.getItem("resetStrikes")) {
 				currentStrikes = 0;
 				localStorage.setItem("currentStrikes",currentStrikes)
 				document.getElementById("currentStrikes").innerHTML = localStorage.getItem("currentStrikes");
