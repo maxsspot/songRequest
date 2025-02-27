@@ -279,19 +279,21 @@
 		    var period = document.getElementById("gymPeriod");
 		
 		    var possibleGrades = ["9", "10", "11", "12"];
-		
+   		    var possiblePeriods = ["1","2","3","4","5","6","7"];
+			
 		    var cleanedTitle = profanityCleaner.clean(songTitle.value.trim().toLowerCase());
 		    var cleanedArtist = profanityCleaner.clean(artist.value.trim().toLowerCase());
 		
 		    if (!possibleGrades.includes(gradeLevel.value.trim())) {
 		        errorZone.innerHTML = "Grade level must be 9, 10, 11, or 12!";
 		        showMessageZone();
-		    }
-		    else if (songTitle.value.trim() === "" || artist.value.trim() === "" || gradeLevel.value.trim() === "") {
+		    } else if (!possiblePeriods.includes(period.value.trim())) {
+		        errorZone.innerHTML = "Period must be 1, 2, 3, 4, 5, 6, or 7!";
+		        showMessageZone();
+		    } else if (songTitle.value.trim() === "" || artist.value.trim() === "" || gradeLevel.value.trim() === "") {
 		        errorZone.innerHTML = "All inputs must be filled!";
 		        showMessageZone();
-		    }
-		    else if (cleanedTitle.includes("*") || cleanedArtist.includes("*") || containsDisallowedWords(cleanedTitle) || containsDisallowedWords(cleanedArtist)) {
+		    } else if (cleanedTitle.includes("*") || cleanedArtist.includes("*") || containsDisallowedWords(cleanedTitle) || containsDisallowedWords(cleanedArtist)) {
 		        if (localStorage.getItem("haveBeenWarned")) {
 			    	errorZone.innerHTML = "Please refrain from using explicit language!";
 		        	document.getElementById("currentStrikes").innerHTML = currentStrikes+=1;
