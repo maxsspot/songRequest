@@ -235,17 +235,11 @@
 			if (!localStorage.getItem("currentStrikes")) {
 				currentStrikes = 0;
 				localStorage.setItem("currentStrikes",currentStrikes)
-				document.getElementById("currentStrikes").innerHTML = localStorage.getItem("currentStrikes");
-				
-				localStorage.removeItem("resetStrikes");
-				localStorage.removeItem("haveBeenWarned");
-
-				localStorage.setItem("haveAlreadyReset");
 			} else {
 				currentStrikes=parseInt(localStorage.getItem("currentStrikes"), 10);
 			}
 
-			if (currentDate.getDate() == 4 && localStorage.getItem("resetStrikes")) {
+			if (currentDate.getDay() === 4 && localStorage.getItem("resetStrikes")) {
 				currentStrikes = 0;
 				localStorage.setItem("currentStrikes",currentStrikes)
 				document.getElementById("currentStrikes").innerHTML = localStorage.getItem("currentStrikes");
