@@ -228,7 +228,7 @@
 		function checkStrikeInformation() {
 			currentDate = new Date();
 
-			if (currentDate.getDay() === 4 && !localStorage.getItem("haveAlreadyReset")) {
+			if (currentDate.getDay() === 4 && !localStorage.getItem("haveAlreadyReset") || currentDate.getDay() === 5) {
 				localStorage.setItem("resetStrikes","true");
 			}
 			
@@ -247,7 +247,7 @@
 				localStorage.removeItem("resetStrikes");
 				localStorage.removeItem("haveBeenWarned");
 
-				localStorage.setItem("haveAlreadyReset");
+				localStorage.setItem("haveAlreadyReset","true");
 			}
 			
 			document.getElementById("currentStrikes").innerHTML = localStorage.getItem("currentStrikes");
