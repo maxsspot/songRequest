@@ -227,9 +227,19 @@
 		// Checks your strike information and does the proper actions when the page loads
 		function checkStrikeInformation() {
 			currentDate = new Date();
-			if (!localStorage.getItem("currentStrikes")) {
+
+			if (currentDate.getDate() == 4 && !localStorage.getItem("haveAlreadyReset") || currentDate.getDate() == 5) {
+				localStorage.setItem("resetStrikes");
+			}
+			
+			if (!localStorage.getItem("currentStrikes") || currentDate.getDate() == 4 && localStorage.getItem("resetStrikes")) {
 				currentStrikes = 0;
 				localStorage.setItem("currentStrikes",currentStrikes)
+
+				localStorage.removeItem("resetStrikes");
+				localStorage.removeItem("haveBeenWarned");
+
+				localStorage.setItem("haveAlreadyReset");
 			} else {
 				currentStrikes=parseInt(localStorage.getItem("currentStrikes"), 10);
 			}
