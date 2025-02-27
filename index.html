@@ -228,9 +228,9 @@
 		function checkStrikeInformation() {
 			currentDate = new Date();
 
-			if (currentDate.getDay() === 4 && !localStorage.getItem("haveAlreadyReset") || currentDate.getDay() === 5) {
+			/*if (currentDate.getDay() === 4 && !localStorage.getItem("haveAlreadyReset") || currentDate.getDay() === 5) {
 				localStorage.setItem("resetStrikes","true");
-			}
+			}*/
 			
 			if (!localStorage.getItem("currentStrikes")) {
 				currentStrikes = 0;
