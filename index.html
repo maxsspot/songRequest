@@ -210,10 +210,11 @@
 		    if (!localStorage.getItem("returnDate")) {
 			localStorage.setItem("returnDate",returnDate);
 		    }
-
-		    if (currentDateFormatted == localStorage.getItem("returnDate") || currentDate.getDay() == 5 && currentDate.getHours() == 14 && currentDate.getMintutes() == 30) {
+			
+		    if (currentDateFormatted == localStorage.getItem("returnDate") || currentDate.getDay() == 5 && currentDate.getHours() >= 14 && currentDate.getMintutes() >= 30 && !localStorage.getItem("haveReset")) {
 			localStorage.removeItem("returnDate");
 			localStorage.removeItem("haveBeenWarned");
+			localStorage.setItem("haveReset","true");
 			    
 		        currentStrikes=0;
 			localStorage.setItem("currentStrikes",currentStrikes)
