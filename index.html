@@ -229,7 +229,7 @@
 			currentDate = new Date();
 
 			if (currentDate.getDate() == 4 && !localStorage.getItem("haveAlreadyReset") || currentDate.getDate() == 5) {
-				localStorage.setItem("resetStrikes");
+				localStorage.setItem("resetStrikes","true");
 			}
 			
 			if (!localStorage.getItem("currentStrikes")) {
