@@ -226,6 +226,7 @@
 
 		// Checks your strike information and does the proper actions when the page loads
 		function checkStrikeInformation() {
+			currentDate = new Date();
 			if (!localStorage.getItem("currentStrikes") || currentDate.getDay() == 5 && currentDate.getHours() >= 14 && currentDate.getMintutes() >= 30 && !localStorage.getItem("haveReset")) {
 				currentStrikes = 0;
 				localStorage.setItem("currentStrikes",currentStrikes)
