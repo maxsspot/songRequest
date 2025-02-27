@@ -214,6 +214,7 @@
 
 		    if (currentDateFormatted == localStorage.getItem("returnDate")) {
 			localStorage.removeItem("returnDate");
+			localStorage.removeItem("haveBeenWarned");
 			    
 		        currentStrikes=0;
 			localStorage.setItem("currentStrikes",currentStrikes)
