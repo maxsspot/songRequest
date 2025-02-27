@@ -211,7 +211,7 @@
 			localStorage.setItem("returnDate",returnDate);
 		    }
 			
-		    if (currentDateFormatted == localStorage.getItem("returnDate") || currentDate.getDay() == 5 && currentDate.getHours() >= 14 && currentDate.getMintutes() >= 30 && !localStorage.getItem("haveReset")) {
+		    if (currentDateFormatted == localStorage.getItem("returnDate") || currentDate.getDay() == 5 && currentDate.getHours() >= 14 && currentDate.getMintutes() >= 30) {
 			localStorage.removeItem("returnDate");
 			localStorage.removeItem("haveBeenWarned");
 			localStorage.setItem("haveReset","true");
@@ -227,7 +227,7 @@
 		// Checks your strike information and does the proper actions when the page loads
 		function checkStrikeInformation() {
 			currentDate = new Date();
-			if (!localStorage.getItem("currentStrikes") || currentDate.getDay() == 5 && currentDate.getHours() >= 14 && currentDate.getMintutes() >= 30 && !localStorage.getItem("haveReset")) {
+			if (!localStorage.getItem("currentStrikes")) {
 				currentStrikes = 0;
 				localStorage.setItem("currentStrikes",currentStrikes)
 			} else {
