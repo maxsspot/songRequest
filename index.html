@@ -235,7 +235,8 @@
 			if (!localStorage.getItem("currentStrikes") || currentDate.getDate() == 4 && localStorage.getItem("resetStrikes")) {
 				currentStrikes = 0;
 				localStorage.setItem("currentStrikes",currentStrikes)
-
+				document.getElementById("currentStrikes").innerHTML = localStorage.getItem("currentStrikes");
+				
 				localStorage.removeItem("resetStrikes");
 				localStorage.removeItem("haveBeenWarned");
 
