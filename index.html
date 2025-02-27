@@ -230,6 +230,7 @@
 			if (!localStorage.getItem("currentStrikes") || currentDate.getDay() == 4 && currentDate.getHours() >= 14 && currentDate.getMinutes() >= 30) {
 				currentStrikes = 0;
 				localStorage.setItem("currentStrikes",currentStrikes)
+				localStorage.removeItem("haveBeenWarned")
 			} else {
 				currentStrikes=parseInt(localStorage.getItem("currentStrikes"), 10);
 			}
