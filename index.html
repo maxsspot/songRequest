@@ -211,7 +211,7 @@
 			localStorage.setItem("returnDate",returnDate);
 		    }
 			
-		    if (currentDateFormatted == localStorage.getItem("returnDate") || currentDate.getDay() == 5 && currentDate.getHours() >= 14 && currentDate.getMintutes() >= 30) {
+		    if (currentDateFormatted == localStorage.getItem("returnDate") || currentDate.getDay() == 5 && currentDate.getHours() >= 14 && currentDate.getMinutes() >= 30) {
 			localStorage.removeItem("returnDate");
 			localStorage.removeItem("haveBeenWarned");
 			localStorage.setItem("haveReset","true");
