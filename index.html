@@ -291,7 +291,7 @@
 		// Ensures that the user must read the guidelines before using the application
 		function guidelinesAtBeginning() {
 		    if(!localStorage.getItem("readTheGuidelines")) {
-			coverBg.style.opacity = "0.65";
+			coverBg.style.opacity = "0.85";
 			coverBg.style.pointerEvents = "all";
 	   	        errorZone.innerHTML = "Please read <span id = 'showGuidelines' onclick = 'controlGuidelines()' style = 'color:skyblue;'>these guidelines</span> before requesting a song!"
 		        errorZone.style.top = "10px";
