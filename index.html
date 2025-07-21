@@ -18,6 +18,7 @@
 		</div>
 
 		<div id = "songRequest">
+			<div id = "coverBg"></div>
 			<div id = "errors">
 			
 			</div>
@@ -145,6 +146,15 @@
 		    bottom:10px;
 		    right:10px;
 		}
+
+		#coverBg {
+			background-color:black;
+			opacity:0;
+			width:100%;
+			height:100vh;
+			position:fixed;
+			pointer-events:none;
+		}
 		</style>
 
 		<script type="module">
@@ -174,7 +184,8 @@
 		var errorZone = document.getElementById("errors");
 		var guidelineZone = document.getElementById("guidelines");
 		var bannedZone = document.getElementById("barred");
-		
+		var coverBg = document.getElementById("coverBg");
+			
 		var dissallowedWords = ["btch","fck","asshat","dumbass","$h1t","kil","ki!","ki1","ki|","kiI","kill","ki!!","ki11","ki||","ki||","kys","k y s","ky$","k y $","kay why ess","kay y ess","que why ess","que y ess"];
 		
 		var bannedIds = [""]
@@ -280,6 +291,8 @@
 		// Ensures that the user must read the guidelines before using the application
 		function guidelinesAtBeginning() {
 		    if(!localStorage.getItem("readTheGuidelines")) {
+			coverBg.style.opacity = "0.65";
+			coverBg.style.pointerEvents = "all";
 	   	        errorZone.innerHTML = "Please read <span id = 'showGuidelines' onclick = 'controlGuidelines()' style = 'color:skyblue;'>these guidelines</span> before requesting a song!"
 		        errorZone.style.top = "10px";
 			document.getElementById("request").disabled=true;
