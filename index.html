@@ -363,7 +363,8 @@
 		    if (open === 0) {
 		        guidelineZone.style.opacity = "1";
 		        guidelineZone.style.pointerEvents = "all";
-			    
+
+
 		        open = 1;
 		
 		        if (!localStorage.getItem("readTheGuidelines")) {
@@ -372,12 +373,14 @@
 		            errorZone.style.top = "-100px";
 		            document.getElementById("request").style.color = "white";
 		        } 
+
+			setTimeout(function() {
+				coverBg.style.opacity = "0";
+				coverBg.style.pointerEvents = "none";
+			},1000)
 		    } else {
 		        guidelineZone.style.opacity = "0";
 		        guidelineZone.style.pointerEvents = "none";
-
-			coverBg.style.opacity = "0";
-			coverBg.style.pointerEvents = "none";
 			    
 		        open = 0;
 		    }
