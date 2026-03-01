@@ -11,9 +11,9 @@ function bindEvents() {
     }
 }
 
-function checkAllowed() {
+/*function checkAllowed() {
     alert(Math.floor(Math.random() * 9999999) + 1000000) 
-}
+}*/
 
 function openOrClose() {
     let coverBg=document.getElementById("coverBg");
