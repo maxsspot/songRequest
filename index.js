@@ -12,6 +12,9 @@ function bindEvents() {
 }
 
 function loadLocalStorage() {
+    if(!localStorage.getItem("readRules")) {
+        openOrClose()
+    }
     if(localStorage.getItem("classPeriod")) {
         document.getElementById("classPeriod").value=localStorage.getItem("classPeriod");
     }
@@ -47,6 +50,7 @@ function closeRules(coverBg,rulesArea) {
     coverBg.style.backgroundColor="rgba(0,0,0,0)";
     coverBg.style.pointerEvents="none";
     rulesArea.style.top="-250px";
+    localStorage.setItem("readRules","true");
 }
 
 function requestSong() {
