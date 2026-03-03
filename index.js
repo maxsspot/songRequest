@@ -88,8 +88,8 @@ function checkValidity(period,gradeLevel,artistName,songName) {
 }
 
 function setLocalStorage(period,gradeLevel) {
-    localStorage.setItem("classPeriod",period)
-    localStorage.setItem("gradeLevel",gradeLevel)
+    localStorage.setItem("classPeriod",period.value)
+    localStorage.setItem("gradeLevel",gradeLevel.value)
 }
 
 /***** LESSER USED FUNCTIONS *****/
