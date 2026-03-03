@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -18,7 +19,7 @@
 				<h1>Rules</h1>
 				<p>Only request real songs</p>
 				<p>Do not spam requests</p>
-				<p>Mark explicit songs with #</p>
+				<p>Mark checkbox if explicit</p>
 				<button id="agreeRules">I Accept These Rules</button>
 			</div>
 		</div>
@@ -29,6 +30,7 @@
 				<input type="number" placeholder="Grade" id="gradeLevel" class="requestInput" />
 			</div>
 			<input maxlength="80" placeholder="Artist Name" id="songArtist" class="requestInput"><br>
+			<input id="explicitMarker" type="checkbox" />
 			<input maxlength="60" placeholder="Song Name" id="songName" class="requestInput"><br><br>
 			<button id="requestSongs">Request Song</button>
 		</div>
