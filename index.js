@@ -11,6 +11,15 @@ function bindEvents() {
     }
 }
 
+function loadLocalStorage() {
+    if(localStorage.getItem("classPeriod")) {
+        document.getElementById("classPeriod").value=localStorage.getItem("classPeriod");
+    }
+    if(localStorage.getItem("gradeLevel")) {
+        document.getElementById("gradeLevel").value=localStorage.getItem("gradeLevel");
+    }
+}
+
 /*function checkAllowed() {
     alert(Math.floor(Math.random() * 9999999) + 1000000) 
 }*/
@@ -56,7 +65,7 @@ function requestSong() {
     }
 
     if(inputsValid==4) {
-        
+        setLocalStorage(period,gradeLevel)
     }
 }
 
@@ -77,6 +86,13 @@ function checkValidity(period,gradeLevel,artistName,songName) {
         songName.style.border="red solid 2px";
     }
 }
+
+function setLocalStorage(period,gradeLevel) {
+    localStorage.setItem("classPeriod",period)
+    localStorage.setItem("gradeLevel",gradeLevel)
+}
+
+/***** LESSER USED FUNCTIONS *****/
 
 function removeBorders() {
     this.style.border="transparent solid 2px";
