@@ -1,112 +1,45 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-		<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-		<script src="https://cdn.jsdelivr.net/npm/profanity-cleaner@0.0.3/dist/profanity-cleaner.min.js"></script>
-		<script type = "module" src="firebaseConfig.js"></script>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Gym Class Song Request - Requests</title>
-	</head>
-	<body>
-		<br>
-		
-		<h1>SONG REQUESTS</h1>
-		
-		<br><br>
-		
-		<h2>Grade 9</h2>
-		<textarea id = "grade9requests"></textarea>
-		
-		<br><br><br><br><br><br><br><br>
-		
-		<h2>Grade 10</h2>
-		<textarea id = "grade10requests"></textarea>
-		
-		<br><br><br><br><br><br><br><br>
-		
-		<h2>Grade 11</h2>
-		<textarea id = "grade11requests"></textarea>
-		
-		<br><br><br><br><br><br><br><br>
-			
-		<h2>Grade 12</h2>
-		<textarea id = "grade12requests"></textarea>
-		
-		<br><br>
-		<style>
-		* {
-		    margin:0;
-		    padding:0;
-		    outline:none;
-		    font-family:"Lato", sans-serif;
-		    transition:all 0.5s;
-		}
-		
-		body {
-		    background-color:whitesmoke;
-		    text-align:center;
-		}
-
-		#grade9requests, #grade10requests, #grade11requests, #grade12requests {
-		    padding:10px;
-		    border:grey solid 1px;
-		    border-radius:10px;
-		    width:300px;
-		    height:200px;
-		    resize:none;
-		}
-		</style>
-
-		
-		<script type="module">
-		import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-		import { getDatabase, ref, set, update, onValue } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
-		
-		const firebaseConfig = {
-		  apiKey: "AIzaSyAMHdGoXT1dPH1d0YqMVsTXwY583tbpvQU",
-		  authDomain: "song-request-2dde2.firebaseapp.com",
-		  databaseURL: "https://song-request-2dde2-default-rtdb.firebaseio.com/",
-		  projectId: "song-request-2dde2",
-		  storageBucket: "song-request-2dde2.appspot.com",
-		  messagingSenderId: "1050997422155",
-		  appId: "1:1050997422155:web:8f1a7b1e36d40ee56b75ce"
-		};
-		
-		const app = initializeApp(firebaseConfig);
-		const database = getDatabase(app);
-		
-		export { database };
-
-		const ninthGrade = ref(database, "Song Requests/" + "Grade 9");
-		const tenthGrade = ref(database, "Song Requests/" + "Grade 10");
-		const eleventhGrade = ref(database, "Song Requests/" + "Grade 11");
-		const twelfthGrade = ref(database, "Song Requests/" + "Grade 12");
-		
-		function displayRequests(gradeRef, gradeElementId) {
-		  onValue(gradeRef, (snapshot) => {
-		    if (snapshot.exists()) {
-		      const data = snapshot.val();
-		      const gradeRequestsElement = document.getElementById(gradeElementId);
-		      let requestsArray = [];
-		
-		      for (let key in data) {
-		        requestsArray.push(data[key].request);
-		      }
-		
-		      requestsArray.reverse();
-		
-		      if (gradeRequestsElement) {
-		        gradeRequestsElement.value = requestsArray.join("\n\n");
-		      }
-		    }
-		  });
-		}
-		
-		displayRequests(ninthGrade, "grade9requests");
-		displayRequests(tenthGrade, "grade10requests");
-		displayRequests(eleventhGrade, "grade11requests");
-		displayRequests(twelfthGrade, "grade12requests");
-		</script>
-	</body>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+        <title>Song Request</title>
+    </head>
+    <body onload="attatchEvents()">
+        <div id="passwordArea">
+            <h1>Enter Password</h1>
+            <input placeholder="Password" type="password" id="password" />
+            <button id="submitPass" class="blueButton">Log In</button>
+        </div>
+        <div id="coverBg">
+            <div id="banArea">
+                <br>
+                <h1>Ban User</h1>
+                <input class="banInput" placeholder="Ban this ID" id="userId" />
+                <textarea class="banInput" placeholder="Leave a message on why you banned this user... (this field is optional)" id="banMessage"></textarea><br><br>
+                <button id="closeBan" class="blueButton">Cancel</button>
+                <button id="finalize" class="redButton">Ban User</button>
+            </div>
+        </div>
+        <div id="mainContent">
+            <h1>Request Area</h1>
+            <select id="gradeLevel" class="selectBox">
+                <option value="9">Grade 9</option>
+                <option value="10">Grade 10</option>
+                <option value="11">Grade 11</option>
+                <option value="12">Grade 12</option>
+            </select>
+            <select id="classPeriod" class="selectBox">
+                <option value="1">Period 1</option>
+                <option value="2">Period 2</option>
+                <option value="3">Period 3</option>
+                <option value="4">Period 4</option>
+                <option value="5">Period 5</option>
+                <option value="6">Period 6</option>
+                <option value="7">Period 7</option>
+            </select><br><br>
+            <textarea id="requestZone"></textarea>
+        </div>
+        <button id="banStudent" class="blueButton">Ban Student</button>
+    </body>
 </html>
