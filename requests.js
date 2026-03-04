@@ -53,10 +53,15 @@ function removeBorders() {
     this.style.border="transparent solid 2px";
 }
 
+function checkAccess() {
+    if(localStorage.getItem("loggedIn")) {
+        allowAccess()
+    }
+}
+
 function allowAccess() {
     document.getElementById("passwordArea").style.display="none"
     document.getElementById("mainContent").style.display="block"
     banStudent.style.display="block";
+    localStorage.setItem("loggedIn","true");
 }
-
-allowAccess()
